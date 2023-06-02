@@ -1,0 +1,98 @@
+<!DOCTYPE >
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Manipulating the DOM</title>
+  <!-- Load Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="app.js"></script>
+</head>
+<body>
+  <!-- HTML Follows BEM naming conventions 
+  IDs are only used for sections to connect menu achors to sections -->
+  <header class="page__header">
+    <nav class="navbar__menu">
+      <!-- Navigation starts as empty UL that will be populated with JS -->
+      <ul id="navbar__list"></ul>
+    </nav>
+  </header>
+  <main>
+    <header class="main__hero">
+      <h1>Bücheli Web Development</h1>
+    </header>
+    <!-- Each Section has an ID (used for the anchor) and 
+    a data attribute that will populate the li node.
+    Adding more sections will automatically populate nav.
+    The first section is set to active class by default -->
+    <section id="section1" data-nav="Section 1" class="your-active-class">
+      <div class="landing__container">
+        <h2>Bucheli Web Development: Building Innovative Web and Mobile Solutions</h2>
+        <h3>Unlock the Potential of Digital Transformation</h3>
+        <p>Welcome to Bucheli Web Development, your trusted partner in the world of Full Stack Web Development and cutting-edge web and mobile applications. With a passion for innovation and a commitment to excellence, we specialize in creating dynamic, user-friendly, and scalable digital solutions that empower businesses to thrive in the digital era.</p>
+        
+        <h3>Crafting Seamless Web Experiences</h3>
+        <p>At Bucheli Web Development, we understand that a strong online presence is vital for businesses to succeed in today's competitive landscape. Our team of seasoned professionals is well-versed in the latest web development technologies, frameworks, and best practices. From front-end design to back-end functionality, we take a comprehensive approach to build intuitive and visually stunning websites that captivate users and drive meaningful engagement. Whether you need a simple business website, an e-commerce platform, or a complex web application, our Full Stack Web Development expertise ensures that your digital presence stands out from the crowd.</p>
+        
+        <h3>Empowering Businesses with Mobile Solutions</h3>
+        <p>In an increasingly mobile-centric world, having a mobile application is no longer a luxury but a necessity. Bucheli Web Development excels in creating customized mobile apps that seamlessly integrate with your existing systems or serve as standalone solutions. Our team of experienced mobile app developers possesses a deep understanding of iOS and Android platforms, ensuring that your app delivers an exceptional user experience across all devices. From conceptualization and design to development and deployment, we guide you through every step of the mobile app development journey, empowering your business to reach a wider audience and stay ahead of the curve.</p>
+
+        <p>Partner with Bucheli Web Development today and embark on a transformative digital journey that propels your business towards success. Contact us to discuss your project requirements and discover how we can bring your web and mobile ideas to life.</p>
+      </div>
+    </section>
+    <section id="section2" data-nav="Section 2">
+      <div class="landing__container">
+        <h2>Our Projects: Exceeding Expectations, Every Time</h2>
+        <h3>Unleash the Power of Innovation and Expertise</h3>
+        <p>At Bucheli Web Development, we take immense pride in our track record of delivering exceptional Full Stack Web Development projects and creating remarkable web applications and mobile apps. Our team of seasoned professionals brings together a wealth of experience, professionalism, and a relentless pursuit of customer satisfaction. With a steadfast commitment to quality and a focus on efficient delivery, we consistently exceed expectations, leaving a trail of delighted clients in our wake.</p>
+
+        <p>Our portfolio showcases a diverse range of successful projects that demonstrate our expertise in transforming ideas into functional and visually stunning digital solutions. We leverage the latest technologies and industry best practices to craft tailor-made websites, web applications, and mobile apps that not only meet but surpass our clients' business objectives.</p>
+
+        <p>We believe in the power of collaboration, working closely with our clients throughout the development process to ensure that every aspect of their vision is brought to life. Our meticulous attention to detail, combined with our agility and adaptability, allows us to create solutions that are both user-friendly and scalable, empowering businesses to thrive in the ever-evolving digital landscape.</p>
+
+        <p>But don't just take our word for it – our satisfied customers and clients attest to the effectiveness of our services. Their testimonials speak volumes about our professionalism, expertise, and dedication to delivering projects on time and within budget. We pride ourselves on building long-lasting relationships with our clients, rooted in trust, transparency, and exceptional results.</p>
+
+        <p>Experience the Bucheli Web Development difference for yourself. Contact us today to discuss your project requirements and embark on a digital journey that will transform your business and captivate your audience.</p>
+      </div>
+    </section>
+    <section id="section3" data-nav="Section 3">
+      <div class="landing__container">
+        <h2>Innovation and Efficiency: Powering Your Success</h2>
+        <h3>Harnessing Cutting-Edge Technologies for Unparalleled Solutions</h3>
+        <p>At Bucheli Web Development, we are at the forefront of the ever-evolving technology landscape, leveraging the latest advancements to deliver exceptional Full Stack Web Development projects and create groundbreaking web applications and mobile apps. Our commitment to innovation drives us to embrace transformative technologies, ensuring that our clients stay ahead of the curve and achieve remarkable results.</p>
+
+        <p>We harness the power of generative AI tools and pair programming with AI to enhance our development process and accelerate productivity. By leveraging the capabilities of AI, we streamline code generation, automate repetitive tasks, and enhance the overall efficiency of our projects. This not only saves time but also allows us to focus on delivering high-quality, tailor-made solutions that meet and exceed our clients' expectations.</p>
+
+        <p>As a forward-thinking company, we have fully embraced Cloud Computing and DevOps practices. By harnessing the scalability and flexibility of the cloud, we ensure seamless integration, effortless scalability, and enhanced security for our clients' applications. Our DevOps approach allows us to achieve continuous integration and delivery, resulting in shorter development cycles, faster time to market, and reduced operational costs.</p>
+
+        <p>We recognize that staying ahead of the curve requires a dedicated and knowledgeable team. That's why we prioritize the continuous training and development of our developers. Our team undergoes regular upskilling and stays up-to-date with the latest trends, frameworks, and best practices. This commitment to knowledge ensures that we consistently deliver innovative solutions that are future-proof and of the highest quality.</p>
+
+        <p>At Bucheli Web Development, we believe in providing exceptional value to our clients. Our efficient development process, coupled with our expertise and utilization of cutting-edge technologies, allows us to offer competitive pricing without compromising on quality. We pride ourselves on delivering an outstanding relationship between cost and benefit, providing our clients with remarkable solutions that exceed their expectations while being mindful of their budgetary requirements.</p>
+
+        <p>Experience the power of innovation and efficiency with Bucheli Web Development. Contact us today to discuss your project goals and witness firsthand the advantages of partnering with a forward-thinking company that leverages new technologies, invests in talent, and offers unmatched value.</p>
+      </div>
+    </section>
+    <section id="section4" data-nav="Section 4">
+        <div class="landing__container">
+          <h2>Powerful Solutions Crafted with Swiss Precision</h2>
+          <h3>Exceeding Expectations through Hard Work, Efficiency, and Commitment to Timely Delivery</h3>
+          <p>At Bucheli Web Development, we embody the core values of the Swiss tradition: hard work, efficiency, accuracy, and a commitment to delivering projects on time. Drawing inspiration from the renowned Swiss society, we bring these characteristics to every aspect of our Full Stack Web Development services and the creation of web applications and mobile apps. With a meticulous attention to detail and a dedication to excellence, we craft powerful solutions that not only meet but exceed expectations.</p>
+
+          <p>Our team of highly skilled developers embraces the Swiss work ethic, consistently going the extra mile to ensure the success of our clients' projects. We approach every task with unwavering commitment, leveraging our technical expertise and industry experience to deliver remarkable results. Through streamlined processes and efficient workflows, we maximize productivity without compromising on quality.</p>
+
+          <p>Accuracy is the cornerstone of our development approach. We understand the importance of precision in delivering flawless web applications and mobile apps. By adhering to stringent quality assurance practices and rigorous testing methodologies, we guarantee that our solutions meet the highest standards. Our meticulous approach ensures that every line of code is meticulously crafted, resulting in reliable and robust applications.</p>
+
+          <p>Time is of the essence, and we recognize the significance of delivering projects on schedule. At Bucheli Web Development, we pride ourselves on our commitment to timely delivery. Our team meticulously plans and manages projects to ensure that milestones are met and deadlines are honored. With a strong focus on project management and effective communication, we keep our clients informed throughout the development process, fostering trust and transparency.</p>
+
+          <p>Time is of the essence, and we recognize the significance of delivering projects on schedule. At Bucheli Web Development, we pride ourselves on our commitment to timely delivery. Our team meticulously plans and manages projects to ensure that milestones are met and deadlines are honored. With a strong focus on project management and effective communication, we keep our clients informed throughout the development process, fostering trust and transparency.</p>
+        </div>
+      </section>
+  </main>
+  <footer class="page__footer">
+    <p>Bucheli Web Development &copy 2023</p>
+  </footer>
+
+</body>
+</html>
