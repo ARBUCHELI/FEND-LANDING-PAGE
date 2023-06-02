@@ -20,8 +20,8 @@
     color: #fff;
 }*/
 body {
-    background: #FFC300;
-    background: linear-gradient(0deg, #FFC300 0%, #581845 100%);
+    background: #ff7b25;
+    background: linear-gradient(0deg, #f2ae72 0%, #581845 100%);
     margin: 0;
     font-family: 'Merriweather', serif;
     color: #fff;
@@ -97,18 +97,20 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: #b1cbbb;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
 }
 
 .navbar__menu .menu__link:hover {
-    background: #333;
+    background: #feb236;
     color: #fff;
     transition: ease 0.3s all;
 }
 
 /* Header Styles */
 .page__header {
-    background: #fff;
+    background: #bc5a45;
     position: fixed;
     top: 0;
     width: 100%;
@@ -213,7 +215,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.your-active-class {
-    background: rgb(0, 0, 0);
+    background: red;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
@@ -239,4 +241,8 @@ section.your-active-class .landing__container::after {
 		           translate(-1em) 
 		           rotate(-360deg);
 	}
+}
+
+.your-active-class {
+    color: black;
 }

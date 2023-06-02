@@ -61,7 +61,7 @@
 
 //----------------------------------------------------------------------------------------------------------------
 // Wait for the DOM content to load
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     // Get the navbar list element
     const navbarList = document.getElementById('navbar__list');
     
@@ -126,4 +126,66 @@ fragment.appendChild(backToTopItem);
 
 // Append the document fragment to the navbar list
 navbarList.appendChild(fragment);
+
+
+function activateSection(sectionId) {
+    // Remove the active class from all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section) => {
+      section.classList.remove('your-active-class');
+    });
+  
+    // Add the active class to the selected section
+    const selectedSection = document.getElementById(sectionId);
+    selectedSection.classList.add('your-active-class');
+  }
+});*/document.addEventListener('DOMContentLoaded', () => {
+  const navbarList = document.getElementById('navbar__list');
+  const sections = document.querySelectorAll('section');
+  const fragment = document.createDocumentFragment();
+
+  sections.forEach((section) => {
+    const sectionId = section.id;
+    const sectionNav = section.getAttribute('data-nav');
+
+    const listItem = document.createElement('li');
+    const anchor = document.createElement('a');
+    anchor.classList.add('menu__link');
+    anchor.href = `#${sectionId}`;
+    anchor.textContent = sectionNav;
+
+    anchor.addEventListener('click', (event) => {
+      event.preventDefault();
+      section.scrollIntoView({ behavior: 'smooth' });
+      activateSection(sectionId);
+    });
+
+    listItem.appendChild(anchor);
+    fragment.appendChild(listItem);
+  });
+
+  const backToTopItem = document.createElement('li');
+  const backToTopAnchor = document.createElement('a');
+  backToTopAnchor.classList.add('menu__link');
+  backToTopAnchor.href = '#top';
+  backToTopAnchor.textContent = 'Back to Top';
+
+  backToTopAnchor.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  backToTopItem.appendChild(backToTopAnchor);
+  fragment.appendChild(backToTopItem);
+
+  navbarList.appendChild(fragment);
+
+  const activateSection = (sectionId) => {
+    sections.forEach((section) => {
+      section.classList.remove('your-active-class');
+    });
+
+    const selectedSection = document.getElementById(sectionId);
+    selectedSection.classList.add('your-active-class');
+  };
 });
