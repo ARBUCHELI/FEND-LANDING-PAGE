@@ -64,20 +64,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Get the navbar list element
     const navbarList = document.getElementById('navbar__list');
-
+    
     // Get all the sections in the document
-const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section');
+    
+    // Create a document fragment to store the menu items
+    const fragment = document.createDocumentFragment();
+    
+    // Loop over each section and create a menu item for it
+    sections.forEach((section) => {
+    // Get the section ID and data-nav attribute
+    const sectionId = section.id;
+    const sectionNav = section.getAttribute('data-nav');
 
-// Create a document fragment to store the menu items
-const fragment = document.createDocumentFragment();
-
-// Loop over each section and create a menu item for it
-sections.forEach((section) => {
-// Get the section ID and data-nav attribute
-const sectionId = section.id;
-const sectionNav = section.getAttribute('data-nav');
-
-// Create a new list item
+    // Create a new list item
 const listItem = document.createElement('li');
 
 // Create a new anchor element for the menu item
@@ -108,7 +108,20 @@ const backToTopAnchor = document.createElement('a');
 backToTopAnchor.classList.add('menu__link');
 backToTopAnchor.href = '#top'; // Assuming you have an element with the ID 'top' at the top of the page
 backToTopAnchor.textContent = 'Back to Top';
+
+// Add a click event listener to the back to top anchor
+backToTopAnchor.addEventListener('click', (event) => {
+event.preventDefault(); // Prevent the default jump behavior
+
+// Scroll to the top of the page smoothly
+window.scrollTo({ top: 0, behavior: 'smooth' });
+
+});
+
+// Add the back to top anchor to the menu item
 backToTopItem.appendChild(backToTopAnchor);
+
+// Add the back to top menu item to the fragment
 fragment.appendChild(backToTopItem);
 
 // Append the document fragment to the navbar list
