@@ -99,7 +99,7 @@ section {
     text-decoration: none;
     color: #b1cbbb;
     font-family: 'Fira Sans', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.1em;
 }
 
 .navbar__menu .menu__link:hover {
@@ -127,6 +127,7 @@ section {
 
 .page__footer p{
     color: #fff;
+    font-size: 1.1em;
 }
 
 
