@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const fragment = document.createDocumentFragment();
   
   /**
-  * End Variables
-  */
+   * End Variables
+   */
   sections.forEach((section) => {
     const sectionId = section.id;
     const sectionNav = section.getAttribute('data-nav');
@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Scroll to anchor ID using scrollIntoView event
       section.scrollIntoView({ behavior: 'smooth' });
       // Add class 'active' to section when near top of viewport
-      activateSection(sectionId);
-      activateNav(anchor);
+      /*activateSection(sectionId);
+      activateNav(anchor);*/
     });
   
     listItem.appendChild(anchor);
@@ -74,26 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
   fragment.appendChild(backToTopItem);
   
   navbarList.appendChild(fragment);
-  
-   // Add an event listener to the window to highlight the active section
-   window.addEventListener("scroll", function() {
-    // Get the current position of the scrollbar
-    const scrollPosition = window.scrollY;
 
-    // Check each section to find the active one
-    sections.forEach(function(section) {
-      const offsetTop = section.offsetTop;
-      const offsetHeight = section.offsetHeight;
-
-      // Add or remove the active class based on the scroll position
-      if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-        section.classList.add("activated-section");
-      } else {
-        section.classList.remove("activated-section");
-      }
-    });
-  });
-  //Helper functions
+  // Helper functions
   const activateSection = (sectionId) => {
     sections.forEach((section) => {
       section.classList.remove('activated-section');
@@ -111,6 +93,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set clicked nav as active
     clickedNav.classList.add('activated-nav');
   };
+
+  window.addEventListener('scroll', () => {
+    // Get the current position of the scrollbar
+    const scrollPosition = window.scrollY + 10;
+
+    // Check each section to find the active one
+    sections.forEach((section) => {
+      const offsetTop = section.offsetTop;
+      const offsetHeight = section.offsetHeight;
+
+      // Add or remove the active class based on the scroll position
+      if (scrollPosition > offsetTop && scrollPosition < offsetTop + offsetHeight) {
+        activateSection(section.id);
+        activateNav(document.querySelector(`a[href="#${section.id}"]`));
+      }
+    });
+  });
 });
-
-
