@@ -24,169 +24,93 @@
 */
 // Wait for the DOM content to load
 document.addEventListener('DOMContentLoaded', () => {
-    // Get the navbar list element and define variables
-    const navbarList = document.getElementById('navbar__list');
-    const sections = document.querySelectorAll('section');
-    const fragment = document.createDocumentFragment();
+  // Get the navbar list element and define variables
+  const navbarList = document.getElementById('navbar__list');
+  const sections = document.querySelectorAll('section');
+  const fragment = document.createDocumentFragment();
   
-    /**
-    * End Variables
-    */
-    sections.forEach((section) => {
-      const sectionId = section.id;
-      const sectionNav = section.getAttribute('data-nav');
-  
-      // build the nav
-      const listItem = document.createElement('li');
-      const anchor = document.createElement('a');
-      // Build menu 
-      anchor.classList.add('menu__link');
-      anchor.href = `#${sectionId}`;
-      anchor.textContent = sectionNav;
-  
-      anchor.addEventListener('click', (event) => {
-        event.preventDefault();
-        // Scroll to section on link click
-        // Scroll to anchor ID using scrollIntoView event
-        section.scrollIntoView({ behavior: 'smooth' });
-        // Add class 'active' to section when near top of viewport
-        activateSection(sectionId);
-      });
-  
-      listItem.appendChild(anchor);
-      fragment.appendChild(listItem);
-    });
-  
-    const backToTopItem = document.createElement('li');
-    const backToTopAnchor = document.createElement('a');
-    backToTopAnchor.classList.add('menu__link');
-    backToTopAnchor.href = '#top';
-    backToTopAnchor.textContent = 'Back to Top';
-  
-    backToTopAnchor.addEventListener('click', (event) => {
-      event.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  
-    backToTopItem.appendChild(backToTopAnchor);
-    fragment.appendChild(backToTopItem);
-  
-    navbarList.appendChild(fragment);
- 
-    //Helper functions
-    const activateSection = (sectionId) => {
-      sections.forEach((section) => {
-        section.classList.remove('your-active-class');
-      });
-         // Set sections as active
-      const selectedSection = document.getElementById(sectionId);
-      selectedSection.classList.add('your-active-class');
-    };
-  });
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//----------------------------------------------------------------------------------------------------------------
-
-/*document.addEventListener('DOMContentLoaded', () => {
-  
-    const navbarList = document.getElementById('navbar__list');
-    
-    // Get all the sections in the document
-    const sections = document.querySelectorAll('section');
-    
-    // Create a document fragment to store the menu items
-    const fragment = document.createDocumentFragment();
-    
-    // Loop over each section and create a menu item for it
-    sections.forEach((section) => {
-    // Get the section ID and data-nav attribute
+  /**
+  * End Variables
+  */
+  sections.forEach((section) => {
     const sectionId = section.id;
     const sectionNav = section.getAttribute('data-nav');
-
-    // Create a new list item
-const listItem = document.createElement('li');
-
-// Create a new anchor element for the menu item
-const anchor = document.createElement('a');
-anchor.classList.add('menu__link');
-anchor.href = `#${sectionId}`;
-anchor.textContent = sectionNav;
-
-// Add a click event listener to the anchor
-anchor.addEventListener('click', (event) => {
-  event.preventDefault(); // Prevent the default jump behavior
-
-  // Scroll to the corresponding section smoothly
-  section.scrollIntoView({ behavior: 'smooth' });
-});
-
-// Add the anchor element to the list item
-listItem.appendChild(anchor);
-
-// Add the list item to the document fragment
-fragment.appendChild(listItem);
-
-});
-
-// Create a menu item for going back to the top
-const backToTopItem = document.createElement('li');
-const backToTopAnchor = document.createElement('a');
-backToTopAnchor.classList.add('menu__link');
-backToTopAnchor.href = '#top'; // Assuming you have an element with the ID 'top' at the top of the page
-backToTopAnchor.textContent = 'Back to Top';
-
-// Add a click event listener to the back to top anchor
-backToTopAnchor.addEventListener('click', (event) => {
-event.preventDefault(); // Prevent the default jump behavior
-
-// Scroll to the top of the page smoothly
-window.scrollTo({ top: 0, behavior: 'smooth' });
-
-});
-
-// Add the back to top anchor to the menu item
-backToTopItem.appendChild(backToTopAnchor);
-
-// Add the back to top menu item to the fragment
-fragment.appendChild(backToTopItem);
-
-// Append the document fragment to the navbar list
-navbarList.appendChild(fragment);
-
-
-function activateSection(sectionId) {
-    // Remove the active class from all sections
-    const sections = document.querySelectorAll('section');
-    sections.forEach((section) => {
-      section.classList.remove('your-active-class');
+  
+    // build the nav
+    const listItem = document.createElement('li');
+    const anchor = document.createElement('a');
+    // Build menu 
+    anchor.classList.add('menu__link');
+    anchor.href = `#${sectionId}`;
+    anchor.textContent = sectionNav;
+  
+    anchor.addEventListener('click', (event) => {
+      event.preventDefault();
+      // Scroll to section on link click
+      // Scroll to anchor ID using scrollIntoView event
+      section.scrollIntoView({ behavior: 'smooth' });
+      // Add class 'active' to section when near top of viewport
+      activateSection(sectionId);
+      activateNav(anchor);
     });
   
-    // Add the active class to the selected section
+    listItem.appendChild(anchor);
+    fragment.appendChild(listItem);
+  });
+  
+  const backToTopItem = document.createElement('li');
+  const backToTopAnchor = document.createElement('a');
+  backToTopAnchor.classList.add('menu__link');
+  backToTopAnchor.href = '#top';
+  backToTopAnchor.textContent = 'Back to Top';
+  
+  backToTopAnchor.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    activateNav(backToTopAnchor);
+  });
+  
+  backToTopItem.appendChild(backToTopAnchor);
+  fragment.appendChild(backToTopItem);
+  
+  navbarList.appendChild(fragment);
+  
+   // Add an event listener to the window to highlight the active section
+   window.addEventListener("scroll", function() {
+    // Get the current position of the scrollbar
+    const scrollPosition = window.scrollY;
+
+    // Check each section to find the active one
+    sections.forEach(function(section) {
+      const offsetTop = section.offsetTop;
+      const offsetHeight = section.offsetHeight;
+
+      // Add or remove the active class based on the scroll position
+      if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+        section.classList.add("activated-section");
+      } else {
+        section.classList.remove("activated-section");
+      }
+    });
+  });
+  //Helper functions
+  const activateSection = (sectionId) => {
+    sections.forEach((section) => {
+      section.classList.remove('activated-section');
+    });
+    // Set sections as active
     const selectedSection = document.getElementById(sectionId);
-    selectedSection.classList.add('your-active-class');
-  }
-});*/
+    selectedSection.classList.add('activated-section');
+  };
+
+  const activateNav = (clickedNav) => {
+    const navItems = document.querySelectorAll('.menu__link');
+    navItems.forEach((navItem) => {
+      navItem.classList.remove('activated-nav');
+    });
+    // Set clicked nav as active
+    clickedNav.classList.add('activated-nav');
+  };
+});
+
 
