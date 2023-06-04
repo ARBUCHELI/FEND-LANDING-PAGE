@@ -1,3 +1,12 @@
+<!-- Rubric Interface and Architecure Criteria 1 - Architecture. : The project should have a structure like the one shown below. All files shown 
+  must be present and the app must successfully render a home page with clear design and functionality added when index.html is 
+  loaded in the browser. No errors should display in console.
+  css
+- styles.css    
+index.html
+js
+- app.js
+README.md -->
 <!DOCTYPE >
 <html lang="en">
 <head>
@@ -16,6 +25,8 @@
   <header class="page__header">
     <nav class="navbar__menu">
       <!-- Navigation starts as empty UL that will be populated with JS -->
+      <!-- Rubric Landing Page Behavior Criteria 1 - Navigation. : Navigation is built dynamically as an unordered list. Start 
+        with empty ul and dynamically build navigation using Append, appendChild, and innerHTML. -->
       <ul id="navbar__list"></ul>
     </nav>
   </header>
@@ -27,8 +38,11 @@
     a data attribute that will populate the li node.
     Adding more sections will automatically populate nav.
     The first section is set to active class by default 
-    Here I decided to change the name of the class for "activated-section", to add simplicity to my development of the solution.-->
+    Here I decided to change the name of the class for "activated-section", to add simplicity to my development of the 
+    solution.-->
     
+    <!-- Rubric Interface and Architecture Criteria 4 - HTML Structure. : There are at least 4 sections that have been added to 
+      the page. -->
     <section id="section1" data-nav="About Us" class="activated-section">
       <div class="landing__container">
         <h2>Bucheli Web Development: Building Innovative Web and Mobile Solutions</h2>

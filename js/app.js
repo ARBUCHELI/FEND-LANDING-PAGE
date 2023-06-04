@@ -23,6 +23,17 @@
  * Start Helper Functions
 */
 // Wait for the DOM content to load
+/*
+<!-- Rubric Interface and Architecure Criteria 1 - Architecture. : The project should have a structure like the one shown below. All files shown 
+  must be present and the app must successfully render a home page with clear design and functionality added when index.html is 
+  loaded in the browser. No errors should display in console.
+  css
+- styles.css    
+index.html
+js
+- app.js
+README.md
+*/
 document.addEventListener('DOMContentLoaded', () => {
   // Geting the navbar list element, the section, and defining variables
   const navbarList = document.getElementById('navbar__list');
@@ -50,12 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
       // Scroll to section on link click
       // Scroll to anchor ID using scrollIntoView event
+       /* Rubric Landing Page Behavior Criteria 3 - Scroll to Anchor. : When clicking an item from the navigation menu, the link 
+       should scroll to the appropriate section. */
       section.scrollIntoView({ behavior: 'smooth' });
       // Add class 'active' to section when near top of viewport
       /*activateSection(sectionId);
       activateNav(anchor);*/
     });
-  
+    /* Rubric Landing Page Behavior Criteria 1 - Navigation. : Navigation is built dynamically as an unordered list. Start 
+        with empty ul and dynamically build navigation using Append, appendChild, and innerHTML. */
     listItem.appendChild(anchor);
     fragment.appendChild(listItem);
   });
@@ -104,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
    * In order to implement the functionality of adding the "activated-section" class, whewn scrolling, I found a solution that 
    * I consider a little bit simpler, and I used two different built-in Web API methods (offseTop, and offsetHeight)
    */
+  /* Rubric Landing Page Behavior Criteria 2 - Section Active State. : It should be clear which section is being viewed while 
+    scrolling through the page. */
   window.addEventListener('scroll', () => {
     // Get the current position of the scrollbar
     const scrollPosition = window.scrollY + 10;

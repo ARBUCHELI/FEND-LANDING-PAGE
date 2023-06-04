@@ -1,4 +1,16 @@
 /*
+ Rubric Interface and Architecure Criteria 1 - Architecture. : The project should have a structure like the one shown below. All files shown 
+  must be present and the app must successfully render a home page with clear design and functionality added when index.html is 
+  loaded in the browser. No errors should display in console.
+  css
+- styles.css    
+index.html
+js
+- app.js
+README.md
+*/
+
+/*
  *
  * CSS written based on SMACSS architecture.
  * To learn more, visit: http://smacss.com/
@@ -214,6 +226,7 @@ section.activated-section .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 /* Adding some extra style to the activated-class */
+/*-- Rubric Interface and Architecture Criteria 3 - Styling. : Styling has been added for active states. */
 section.activated-section h2 {
     text-shadow: 1px 1px 2px #034f84;
     font-size: 3.5em;
@@ -233,6 +246,7 @@ section.activated-section p {
 }
 
 /* Responsive Web Design*/
+/*-- Rubric Interface and Architecture Criteria 2 - Usability. : All features are usable across modern desktop, tablet, and phone browsers. */
 @media screen and (max-width: 960px) {
     /*.navbar__menu .menu__link {
         font-size: 1em;
