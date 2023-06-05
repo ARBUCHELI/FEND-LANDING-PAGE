@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check each section to find the active one
     sections.forEach((section) => {
+      // Use of the getBoundingClientRect() built-in function, as suggested in the first project submission review
       const checkPoint = section.getBoundingClientRect();
 
       // Add or remove the active class based on the scroll position
