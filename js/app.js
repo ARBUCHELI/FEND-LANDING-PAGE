@@ -115,29 +115,29 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /** 
-   * In order to implement the functionality of adding the "activated-section" class, whewn scrolling, I found a solution that 
-   * I consider a little bit simpler, and I used two different built-in Web API methods (offseTop, and offsetHeight)
+   * The function passed to the addEventListener method was refactored using the .getBoundingClientRect() built-in function, as it
+   * was suggested in the review of my first submission.
    */
   /* Rubric Landing Page Behavior Criteria 2 - Section Active State. : It should be clear which section is being viewed while 
     scrolling through the page. */
   window.addEventListener('scroll', () => {
     // Get the current position of the scrollbar
-    let lastPoint= 0;
-    const viewportHeight = window.innerHeight;
-    let verticalDistance;
-    if (window.scrollY > lastPoint) {
-      verticalDistance = viewportHeight/3;
+    let verticalCheckPoint= 0;
+    const viewportVerticalArea = window.innerHeight;
+    let calculatedDistance;
+    if (window.scrollY > verticalCheckPoint) {
+      calculatedDistance = viewportVerticalArea/3;
   } else {
-      verticalDistance = viewportHeight*2/3;
+      calculatedDistance = viewportVerticalArea*2/3;
   }
-  lastPoint = window.scrollY;
+    verticalCheckPoint = window.scrollY;
 
     // Check each section to find the active one
     sections.forEach((section) => {
-      const position = section.getBoundingClientRect();
+      const checkPoint = section.getBoundingClientRect();
 
       // Add or remove the active class based on the scroll position
-      if (position.top < verticalDistance && position.bottom > verticalDistance) {
+      if (checkPoint.top < calculatedDistance && checkPoint.bottom > calculatedDistance) {
         activateSection(section.id);
         activateNav(document.querySelector(`a[href="#${section.id}"]`));
       }
