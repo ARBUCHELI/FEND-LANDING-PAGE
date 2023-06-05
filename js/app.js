@@ -122,15 +122,22 @@ document.addEventListener('DOMContentLoaded', () => {
     scrolling through the page. */
   window.addEventListener('scroll', () => {
     // Get the current position of the scrollbar
-    const scrollPosition = window.scrollY + 10;
+    let lastPoint= 0;
+    const viewportHeight = window.innerHeight;
+    let verticalDistance;
+    if (window.scrollY > lastPoint) {
+      verticalDistance = viewportHeight/3;
+  } else {
+      verticalDistance = viewportHeight*2/3;
+  }
+  lastPoint = window.scrollY;
 
     // Check each section to find the active one
     sections.forEach((section) => {
-      const offsetTop = section.offsetTop;
-      const offsetHeight = section.offsetHeight;
+      const position = section.getBoundingClientRect();
 
       // Add or remove the active class based on the scroll position
-      if (scrollPosition > offsetTop && scrollPosition < offsetTop + offsetHeight) {
+      if (position.top < verticalDistance && position.bottom > verticalDistance) {
         activateSection(section.id);
         activateNav(document.querySelector(`a[href="#${section.id}"]`));
       }
